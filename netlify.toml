@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/*"
+  to = "/afl_gps_tracker-2.html"
+  status = 200
