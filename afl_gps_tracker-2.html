@@ -1776,65 +1776,97 @@
 
 <script>
 // ─── STATE ────────────────────────────────────────────────────────
-const SEED_DATA = [
-  {id:1739231001,player:"Jake Wrobel",date:"2026-02-11",type:"Training",distance:6.34,load:254.82,speed:25.38,hsd:0.88,sprints:21},
-  {id:1739231002,player:"Remy Spicer",date:"2026-02-11",type:"Training",distance:7.26,load:339.17,speed:25.22,hsd:1.32,sprints:32},
-  {id:1739231003,player:"Kane Nissenbaum",date:"2026-02-11",type:"Training",distance:8.21,load:420.82,speed:24.86,hsd:1.50,sprints:23},
-  {id:1739231004,player:"Jordan Cohen",date:"2026-02-11",type:"Training",distance:6.65,load:312.26,speed:25.79,hsd:1.57,sprints:41},
-  {id:1739231005,player:"Noah Spitz",date:"2026-02-11",type:"Training",distance:5.38,load:222.65,speed:22.32,hsd:0.53,sprints:10},
-  {id:1739231006,player:"Toby Lipton",date:"2026-02-11",type:"Training",distance:7.99,load:345.91,speed:24.16,hsd:1.49,sprints:40},
-  {id:1739663001,player:"Jake Wrobel",date:"2026-02-16",type:"Training",distance:6.18,load:248.73,speed:22.79,hsd:0.43,sprints:19},
-  {id:1739663002,player:"Remy Spicer",date:"2026-02-16",type:"Training",distance:7.44,load:356.06,speed:22.25,hsd:0.55,sprints:26},
-  {id:1739663003,player:"Benji Krongold",date:"2026-02-16",type:"Training",distance:8.10,load:373.43,speed:28.26,hsd:1.16,sprints:33},
-  {id:1739663004,player:"Jordan Cohen",date:"2026-02-16",type:"Training",distance:6.56,load:308.72,speed:26.93,hsd:0.70,sprints:32},
-  {id:1739663005,player:"Noah Spitz",date:"2026-02-16",type:"Training",distance:6.17,load:254.29,speed:26.57,hsd:0.45,sprints:18},
-  {id:1739663006,player:"Toby Lipton",date:"2026-02-16",type:"Training",distance:7.91,load:333.01,speed:24.62,hsd:1.00,sprints:34},
-  {id:1739836001,player:"Jack Hart",date:"2026-02-18",type:"Training",distance:11.07,load:468.93,speed:25.39,hsd:1.98,sprints:63},
-  {id:1739836002,player:"Manny Michmacher",date:"2026-02-18",type:"Training",distance:8.20,load:378.22,speed:25.49,hsd:1.06,sprints:28},
-  {id:1739836003,player:"Sean Bass",date:"2026-02-18",type:"Training",distance:8.65,load:396.85,speed:24.26,hsd:1.39,sprints:31},
-  {id:1739836004,player:"Jake Mehl",date:"2026-02-18",type:"Training",distance:9.07,load:437.45,speed:24.37,hsd:1.40,sprints:49},
-  {id:1739836005,player:"Harry Edwards",date:"2026-02-18",type:"Training",distance:8.45,load:384.75,speed:27.35,hsd:1.06,sprints:22},
-  {id:1739836006,player:"Hayden Bass",date:"2026-02-18",type:"Training",distance:8.52,load:413.70,speed:24.95,hsd:1.47,sprints:42},
-  {id:1740268001,player:"Sam Hendler",date:"2026-02-23",type:"Training",distance:6.08,load:284.64,speed:26.60,hsd:0.39,sprints:21},
-  {id:1740268002,player:"Hudson De Bortoli",date:"2026-02-23",type:"Training",distance:7.09,load:342.98,speed:27.70,hsd:0.23,sprints:22},
-  {id:1740268003,player:"Eden Pitt",date:"2026-02-23",type:"Training",distance:6.22,load:318.26,speed:24.02,hsd:0.24,sprints:6},
-  {id:1740268004,player:"Josh Nirens",date:"2026-02-23",type:"Training",distance:7.47,load:376.43,speed:29.31,hsd:0.20,sprints:18},
-  {id:1740268005,player:"Jarred Fibishenko",date:"2026-02-23",type:"Training",distance:7.78,load:356.20,speed:25.33,hsd:0.52,sprints:41},
-  {id:1740268006,player:"Toby Sheezel",date:"2026-02-23",type:"Training",distance:6.61,load:346.85,speed:24.18,hsd:0.40,sprints:14},
-  {id:1740441001,player:"Max Kidman",date:"2026-02-25",type:"Training",distance:9.68,load:474.08,speed:24.27,hsd:0.82,sprints:29},
-  {id:1740441002,player:"Charlie Efron",date:"2026-02-25",type:"Training",distance:11.20,load:520.40,speed:27.62,hsd:1.58,sprints:54},
-  {id:1740441003,player:"Noah Michmacher",date:"2026-02-25",type:"Training",distance:9.80,load:427.59,speed:24.62,hsd:1.43,sprints:35},
-  {id:1740441004,player:"Nick Pike",date:"2026-02-25",type:"Training",distance:9.62,load:433.75,speed:26.22,hsd:1.36,sprints:44},
-  {id:1740441005,player:"Jordy Rothfield",date:"2026-02-25",type:"Training",distance:8.49,load:410.10,speed:25.34,hsd:1.28,sprints:31},
-  {id:1740441006,player:"Hutch Davis",date:"2026-02-25",type:"Training",distance:8.25,load:374.54,speed:30.08,hsd:1.26,sprints:39},
-  {id:1741478001,player:"Jesse Wrobel",date:"2026-03-09",type:"Training",distance:7.36,load:347.81,speed:28.37,hsd:0.64,sprints:45},
-  {id:1741478002,player:"Elliot Debinski",date:"2026-03-09",type:"Training",distance:9.00,load:418.33,speed:26.68,hsd:0.56,sprints:39},
-  {id:1741478003,player:"Hunter Isaacs",date:"2026-03-09",type:"Training",distance:7.61,load:350.63,speed:25.63,hsd:0.76,sprints:45},
-  {id:1741478004,player:"Justin Vogel",date:"2026-03-09",type:"Training",distance:8.16,load:355.45,speed:28.66,hsd:0.50,sprints:30},
-  {id:1742082001,player:"Jonno Machlin",date:"2026-03-16",type:"Training",distance:7.82,load:349.29,speed:25.85,hsd:0.59,sprints:26},
-  {id:1742082002,player:"Manny Michmacher",date:"2026-03-16",type:"Training",distance:7.70,load:334.72,speed:29.45,hsd:0.76,sprints:31},
-  {id:1742082003,player:"Max Herzel",date:"2026-03-16",type:"Training",distance:6.84,load:286.80,speed:27.86,hsd:0.46,sprints:25},
-];
+// ─── SUPABASE CONFIG ───────────────────────────────────────────────
+const SUPABASE_URL = 'https://xagdycdouundfokwpbby.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_EwhG_onrQJZCnrvbFgI06w_Mtpswaqs';
 
-function initSessions() {
-  const stored = localStorage.getItem('afl_sessions');
-  if (stored) {
-    const parsed = JSON.parse(stored);
-    const existingIds = new Set(parsed.map(s => s.id));
-    const toAdd = SEED_DATA.filter(s => !existingIds.has(s.id));
-    if (toAdd.length > 0) {
-      const merged = [...parsed, ...toAdd];
-      localStorage.setItem('afl_sessions', JSON.stringify(merged));
-      return merged;
-    }
-    return parsed;
-  } else {
-    localStorage.setItem('afl_sessions', JSON.stringify(SEED_DATA));
-    return [...SEED_DATA];
+async function sbFetch(path, options = {}) {
+  const res = await fetch(SUPABASE_URL + '/rest/v1/' + path, {
+    ...options,
+    headers: {
+      'apikey': SUPABASE_KEY,
+      'Authorization': 'Bearer ' + SUPABASE_KEY,
+      'Content-Type': 'application/json',
+      'Prefer': options.prefer || 'return=representation',
+      ...(options.headers || {}),
+    },
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error('Supabase error: ' + err);
+  }
+  const text = await res.text();
+  return text ? JSON.parse(text) : [];
+}
+
+// In-memory session cache — loaded from Supabase on startup
+let sessions = [];
+
+async function loadSessions() {
+  const bar = document.getElementById('db-loading-bar');
+  const msg = document.getElementById('db-loading-msg');
+  try {
+    if (bar) bar.style.width = '40%';
+    if (msg) msg.textContent = 'Loading session data…';
+    const data = await sbFetch('sessions?select=*&order=date.asc,id.asc');
+    sessions = data.map(normaliseRow);
+    if (bar) bar.style.width = '100%';
+    if (msg) msg.textContent = 'Ready';
+    setTimeout(() => {
+      const overlay = document.getElementById('db-loading');
+      if (overlay) overlay.style.display = 'none';
+    }, 300);
+    // Boot the app now that data is loaded
+    setTodayDate();
+    renderLeaderboards();
+    populateCompareSelects();
+    runComparison();
+  } catch(e) {
+    const overlay = document.getElementById('db-loading');
+    if (overlay) overlay.innerHTML = '<div style="color:#ff4757;font-family:sans-serif;text-align:center;padding:40px;"><div style="font-size:18px;margin-bottom:8px;">⚠ Could not connect to database</div><div style="font-size:13px;opacity:0.7;">Check your internet connection and refresh the page</div></div>';
+    console.error('loadSessions failed:', e);
   }
 }
 
-let sessions = initSessions();
+function normaliseRow(r) {
+  return {
+    id:       Number(r.id),
+    player:   r.player,
+    date:     r.date,
+    type:     r.type || 'Training',
+    distance: Number(r.distance) || 0,
+    load:     Number(r.load)     || 0,
+    speed:    Number(r.speed)    || 0,
+    hsd:      Number(r.hsd)      || 0,
+    sprints:  Number(r.sprints)  || 0,
+  };
+}
+
+async function dbInsert(session) {
+  await sbFetch('sessions', {
+    method: 'POST',
+    prefer: 'return=minimal',
+    body: JSON.stringify({
+      id:       session.id,
+      player:   session.player,
+      date:     session.date,
+      type:     session.type,
+      distance: session.distance,
+      load:     session.load,
+      speed:    session.speed,
+      hsd:      session.hsd,
+      sprints:  session.sprints,
+    }),
+  });
+}
+
+async function dbDelete(id) {
+  await sbFetch('sessions?id=eq.' + id, {
+    method: 'DELETE',
+    prefer: 'return=minimal',
+  });
+}
+
 
 // ─── NAVIGATION ───────────────────────────────────────────────────
 function navigate(page) {
@@ -1878,7 +1910,7 @@ function setError(field, msg) {
   }
 }
 
-function saveSession() {
+async function saveSession() {
   clearErrors();
 
   const player = document.getElementById('inp-player').value.trim();
@@ -1936,12 +1968,21 @@ function saveSession() {
     sprints:  sprints  ?? 0,
   };
 
-  sessions.push(session);
-  localStorage.setItem('afl_sessions', JSON.stringify(sessions));
-  showToast('Session saved · ' + player);
-  clearForm();
-  updateSuggestions();
-  renderDatePills();
+  const btn = document.querySelector('#page-input .btn-primary');
+  if (btn) { btn.disabled = true; btn.textContent = 'Saving…'; }
+  try {
+    await dbInsert(session);
+    sessions.push(session);
+    showToast('Session saved · ' + player);
+    clearForm();
+    updateSuggestions();
+    renderDatePills();
+  } catch(e) {
+    showToast('Save failed — check connection', true);
+    console.error(e);
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = 'Save Session'; }
+  }
 }
 
 function clearForm() {
@@ -2411,12 +2452,17 @@ function renderLineChart(container, data, color, decimals) {
     </svg>`;
 }
 
-function deleteSession(id, name) {
+async function deleteSession(id, name) {
   if (!confirm('Delete this session?')) return;
-  sessions = sessions.filter(s => s.id !== id);
-  localStorage.setItem('afl_sessions', JSON.stringify(sessions));
-  openPlayerProfile(name);
-  showToast('Session deleted');
+  try {
+    await dbDelete(id);
+    sessions = sessions.filter(s => s.id !== id);
+    openPlayerProfile(name);
+    showToast('Session deleted');
+  } catch(e) {
+    showToast('Delete failed — check connection', true);
+    console.error(e);
+  }
 }
 
 function formatDate(d) {
@@ -2686,7 +2732,7 @@ Return only the JSON object, nothing else.`
   btn.disabled = false;
 }
 
-function saveScreenshotSession() {
+async function saveScreenshotSession() {
   const player = document.getElementById('sc-player')?.value.trim();
   const date   = document.getElementById('sc-date')?.value;
   if (!player) { showToast('Player name is required', true); return; }
@@ -2704,11 +2750,20 @@ function saveScreenshotSession() {
     sprints:  parseFloat(document.getElementById('sc-sprints')?.value)  || 0,
   };
 
-  sessions.push(session);
-  localStorage.setItem('afl_sessions', JSON.stringify(sessions));
-  showToast('Session saved · ' + player);
-  clearScreenshotForm();
-  initScreenshotPage();
+  const btn = document.querySelector('#page-screenshot .btn-primary');
+  if (btn) { btn.disabled = true; btn.textContent = 'Saving…'; }
+  try {
+    await dbInsert(session);
+    sessions.push(session);
+    showToast('Session saved · ' + player);
+    clearScreenshotForm();
+    initScreenshotPage();
+  } catch(e) {
+    showToast('Save failed — check connection', true);
+    console.error(e);
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = 'Save Session'; }
+  }
 }
 
 function clearScreenshotForm() {
@@ -2922,10 +2977,8 @@ function toggleSessionDetail(id, row) {
 }
 
 // ─── INIT ─────────────────────────────────────────────────────────
-setTodayDate();
-renderLeaderboards();
-populateCompareSelects();
-runComparison();
+// App boots inside loadSessions() after data is fetched from Supabase
+loadSessions();
 </script>
 </body>
 </html>
