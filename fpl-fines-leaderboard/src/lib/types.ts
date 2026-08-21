@@ -22,10 +22,24 @@ export interface FplLeagueEntry {
   total: number;
 }
 
+// Pre-season (or for a manager not yet slotted into a scored gameweek), FPL
+// lists league members here instead of standings.results.
+export interface FplNewEntry {
+  entry: number;
+  entry_name: string;
+  player_first_name: string;
+  player_last_name: string;
+}
+
 export interface FplLeagueStandings {
   league: { id: number; name: string };
   standings: {
     results: FplLeagueEntry[];
+    has_next: boolean;
+    page: number;
+  };
+  new_entries: {
+    results: FplNewEntry[];
     has_next: boolean;
     page: number;
   };
