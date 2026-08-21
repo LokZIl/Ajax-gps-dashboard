@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #0a0b0f;
+  --color-panel: #14161d;
+  --color-panel-border: #23262f;
+}
+
+body {
+  background: var(--color-bg);
+  color: #f5f6fa;
+}
+
+@keyframes fine-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(248, 61, 61, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 22px 4px rgba(248, 61, 61, 0.35);
+  }
+}
+
+.fine-glow {
+  animation: fine-pulse 2.4s ease-in-out infinite;
+}
