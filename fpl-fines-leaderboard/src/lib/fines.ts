@@ -1,6 +1,7 @@
 import type {
   FineCode,
   FineHit,
+  FplH2HMatch,
   FplLiveResponse,
   FplPicksResponse,
   ManagerGameweekResult,
@@ -9,6 +10,7 @@ import type {
 export const FINE_LABELS: Record<FineCode, string> = {
   under_30: "Score under 30",
   lowest_score: "Lowest score in the league",
+  h2h_loss_20: "Lost by 20+ points head-to-head",
   bench_15: "15+ points left on bench",
   bench_25: "25+ points left on bench",
   transfer_hit: "Took a -12 or greater transfer hit",
@@ -112,19 +114,43 @@ export function computeManagerGameweek(
 }
 
 /**
- * Adds the "lowest score in the league" fine to every manager tied for the
- * gameweek minimum, then totals each manager's fines for the week.
+ * Fines the loser of a head-to-head match by 20+ points, keyed by entryId.
+ * Byes (a match missing an opponent) never trigger it.
+ */
+function computeH2HLossFines(matches: FplH2HMatch[]): Map<number, FineHit> {
+  const fines = new Map<number, FineHit>();
+  for (const m of matches) {
+    if (m.entry_1_entry == null || m.entry_2_entry == null) continue;
+    const diff = m.entry_1_points - m.entry_2_points;
+    if (diff >= 20) {
+      fines.set(m.entry_2_entry, { code: "h2h_loss_20", label: FINE_LABELS.h2h_loss_20, amount: 3 });
+    } else if (-diff >= 20) {
+      fines.set(m.entry_1_entry, { code: "h2h_loss_20", label: FINE_LABELS.h2h_loss_20, amount: 3 });
+    }
+  }
+  return fines;
+}
+
+/**
+ * Adds the "lowest score in the league" and "lost head-to-head by 20+" fines,
+ * then totals each manager's fines for the week.
  */
 export function finalizeGameweekFines(
   partials: (Omit<ManagerGameweekResult, "fines" | "total"> & { fines: FineHit[] })[],
+  h2hMatches: FplH2HMatch[] = [],
 ): Record<string, ManagerGameweekResult> {
   const lowestScore = Math.min(...partials.map((p) => p.gwScore));
+  const h2hLossFines = computeH2HLossFines(h2hMatches);
 
   const results: Record<string, ManagerGameweekResult> = {};
   for (const p of partials) {
     const fines = [...p.fines];
     if (p.gwScore === lowestScore) {
       fines.push({ code: "lowest_score", label: FINE_LABELS.lowest_score, amount: 5 });
+    }
+    const h2hFine = h2hLossFines.get(p.entryId);
+    if (h2hFine) {
+      fines.push(h2hFine);
     }
     const total = fines.reduce((sum, f) => sum + f.amount, 0);
     results[String(p.entryId)] = { ...p, fines, total };

@@ -30,7 +30,7 @@ A dark-themed, auto-updating dashboard that tracks fines for FPL mini-league
 | Take a -12+ transfer hit | $3 | `event_transfers_cost >= 12` |
 | Bench player outscores best starter | $2 | compares raw (non-captain-multiplied) live points, using the effective lineup after FPL's automatic subs |
 | Captain scores 0 / negative | $3 / $5 | "captain" = whoever actually received the points multiplier (handles the automatic vice-captain swap and Triple Captain chip); negative overrides zero |
-| Lose by 20+ head-to-head | $3 | **not applicable** — league 980155 is a classic league, not head-to-head, so this rule is defined but never fires. The logic is isolated in `src/lib/fines.ts` if a H2H league is ever added. |
+| Lose by 20+ head-to-head | $3 | league 980155 **is** head-to-head — standings come from `/leagues-h2h/`, and each GW's fixtures come from `/leagues-h2h-matches/league/{id}/?event={gw}` (`getH2HMatches` in `src/lib/fpl.ts`); the loser of any match decided by a 20+ point margin is fined. Byes (an unpaired entry) never trigger it. |
 
 ## Local development
 

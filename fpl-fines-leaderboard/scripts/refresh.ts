@@ -4,7 +4,13 @@
 // (see .github/workflows/refresh-fines.yml).
 
 import { buildLiveMap, computeManagerGameweek, finalizeGameweekFines } from "../src/lib/fines";
-import { getBootstrap, getEntryPicks, getEventLive, getLeagueEntries } from "../src/lib/fpl";
+import {
+  getBootstrap,
+  getEntryPicks,
+  getEventLive,
+  getH2HMatches,
+  getLeagueEntries,
+} from "../src/lib/fpl";
 import { readStore, writeStore } from "../src/lib/store";
 import type { FineHit, ManagerGameweekResult } from "../src/lib/types";
 
@@ -45,7 +51,10 @@ async function main() {
     }
 
     console.log(`GW${event.id}: fetching live data + picks for ${entries.length} managers...`);
-    const live = buildLiveMap(await getEventLive(event.id));
+    const [live, h2hMatches] = await Promise.all([
+      getEventLive(event.id).then(buildLiveMap),
+      getH2HMatches(LEAGUE_ID, event.id),
+    ]);
 
     const partials: (Omit<ManagerGameweekResult, "fines" | "total"> & { fines: FineHit[] })[] = [];
     for (const entry of entries) {
@@ -65,7 +74,7 @@ async function main() {
     store.gameweeks[String(event.id)] = {
       status: event.finished && event.data_checked ? "final" : "provisional",
       computedAt: now.toISOString(),
-      managerResults: finalizeGameweekFines(partials),
+      managerResults: finalizeGameweekFines(partials, h2hMatches),
     };
     console.log(`GW${event.id}: stored as ${store.gameweeks[String(event.id)].status}.`);
   }

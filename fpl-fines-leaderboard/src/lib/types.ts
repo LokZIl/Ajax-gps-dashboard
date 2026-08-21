@@ -31,6 +31,20 @@ export interface FplLeagueStandings {
   };
 }
 
+export interface FplH2HMatch {
+  event: number;
+  entry_1_entry: number | null;
+  entry_1_points: number;
+  entry_2_entry: number | null;
+  entry_2_points: number;
+}
+
+export interface FplH2HMatchesResponse {
+  has_next: boolean;
+  page: number;
+  results: FplH2HMatch[];
+}
+
 export interface FplPick {
   element: number;
   position: number; // 1-11 starting, 12-15 bench
@@ -76,6 +90,7 @@ export interface FplLiveResponse {
 export type FineCode =
   | "under_30"
   | "lowest_score"
+  | "h2h_loss_20"
   | "bench_15"
   | "bench_25"
   | "transfer_hit"
