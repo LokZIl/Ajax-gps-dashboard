@@ -29,21 +29,46 @@ export async function getLeagueEntries(leagueId: number): Promise<{
   leagueName: string;
   entries: FplLeagueEntry[];
 }> {
-  const entries: FplLeagueEntry[] = [];
-  let page = 1;
+  const byId = new Map<number, FplLeagueEntry>();
   let leagueName = "";
 
+  let page = 1;
   while (true) {
     const data = await fplFetch<FplLeagueStandings>(
       `/leagues-h2h/${leagueId}/standings/?page_standings=${page}`,
     );
     leagueName = data.league.name;
-    entries.push(...data.standings.results);
+    for (const entry of data.standings.results) {
+      byId.set(entry.entry, entry);
+    }
     if (!data.standings.has_next) break;
     page += 1;
   }
 
-  return { leagueName, entries };
+  // Before a league's first gameweek is scored (or for a manager who joined
+  // mid-season and hasn't been slotted into standings yet), FPL lists members
+  // under new_entries instead — merge those in so the roster is complete.
+  page = 1;
+  while (true) {
+    const data = await fplFetch<FplLeagueStandings>(
+      `/leagues-h2h/${leagueId}/standings/?page_new_entries=${page}`,
+    );
+    if (!leagueName) leagueName = data.league.name;
+    for (const entry of data.new_entries.results) {
+      if (byId.has(entry.entry)) continue;
+      byId.set(entry.entry, {
+        entry: entry.entry,
+        entry_name: entry.entry_name,
+        player_name: `${entry.player_first_name} ${entry.player_last_name}`.trim(),
+        rank: 0,
+        total: 0,
+      });
+    }
+    if (!data.new_entries.has_next) break;
+    page += 1;
+  }
+
+  return { leagueName, entries: [...byId.values()] };
 }
 
 export async function getH2HMatches(leagueId: number, gw: number): Promise<FplH2HMatch[]> {
