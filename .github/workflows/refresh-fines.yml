@@ -12,32 +12,7 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: fpl-fines-leaderboard
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Refresh fines data
-        run: npm run refresh
-        env:
-          FPL_LEAGUE_ID: 980155
-
-      - name: Commit updated data if changed
+      - name: DEBUG dump raw H2H standings JSON
         run: |
-          if git diff --quiet -- data/fines.json; then
-            echo "No changes to commit."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/fines.json
-          git commit -m "chore: refresh FPL fines data"
-          git push
+          curl -sS "https://fantasy.premierleague.com/api/leagues-h2h/980155/standings/?page_new_entries=1&page_standings=1" | python3 -m json.tool
