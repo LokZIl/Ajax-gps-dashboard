@@ -1,7 +1,88 @@
 {
   "leagueId": 980155,
   "leagueName": "Fantasy 🆖🅰️",
-  "lastUpdated": "2026-08-21T11:22:55.140Z",
-  "managers": {},
+  "lastUpdated": "2026-08-21T11:49:53.536Z",
+  "managers": {
+    "1103764": {
+      "entryId": 1103764,
+      "managerName": "Lior Hadari",
+      "teamName": "Cuckarella"
+    },
+    "1653509": {
+      "entryId": 1653509,
+      "managerName": "Liam Haidaris",
+      "teamName": "Snags with Jags"
+    },
+    "2545609": {
+      "entryId": 2545609,
+      "managerName": "Liam Brauer",
+      "teamName": "Minteh Magic"
+    },
+    "2669806": {
+      "entryId": 2669806,
+      "managerName": "Jonathan Vlamis",
+      "teamName": "Tsimbouki FC"
+    },
+    "3505731": {
+      "entryId": 3505731,
+      "managerName": "Aithan Theofilopoulos",
+      "teamName": "Sakamemnon"
+    },
+    "3760441": {
+      "entryId": 3760441,
+      "managerName": "Chase Nathan",
+      "teamName": "The African Dream"
+    },
+    "4381784": {
+      "entryId": 4381784,
+      "managerName": "Reynald Singh",
+      "teamName": "rey"
+    },
+    "4535263": {
+      "entryId": 4535263,
+      "managerName": "Ethan Zelmanovich",
+      "teamName": "zellys kids"
+    },
+    "5084662": {
+      "entryId": 5084662,
+      "managerName": "Corey Zielinski",
+      "teamName": "Netflix and Zil"
+    },
+    "5098299": {
+      "entryId": 5098299,
+      "managerName": "Kai Seeto-Grossi",
+      "teamName": "Seeto's Sizzle"
+    },
+    "5168727": {
+      "entryId": 5168727,
+      "managerName": "Loki ZIELINSKI",
+      "teamName": "Ted Spasso"
+    },
+    "5946602": {
+      "entryId": 5946602,
+      "managerName": "Tait Pascoe",
+      "teamName": "The Soopranos"
+    },
+    "6068214": {
+      "entryId": 6068214,
+      "managerName": "Andreas Voyias",
+      "teamName": "PingPongFrimPong"
+    },
+    "6606805": {
+      "entryId": 6606805,
+      "managerName": "perry robinson",
+      "teamName": "Let Me Talk FC"
+    },
+    "6947968": {
+      "entryId": 6947968,
+      "managerName": "Phoenix Vala",
+      "teamName": "The Loyal Heeney"
+    },
+    "7969093": {
+      "entryId": 7969093,
+      "managerName": "Matthew Sagiadelis",
+      "teamName": "sac cu ble"
+    }
+  },
   "gameweeks": {}
 }
