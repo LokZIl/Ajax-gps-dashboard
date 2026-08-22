@@ -1,7 +1,7 @@
 {
   "leagueId": 980155,
   "leagueName": "Fantasy 🆖🅰️",
-  "lastUpdated": "2026-08-21T11:49:53.536Z",
+  "lastUpdated": "2026-08-22T06:28:44.478Z",
   "managers": {
     "1103764": {
       "entryId": 1103764,
@@ -84,5 +84,364 @@
       "teamName": "sac cu ble"
     }
   },
-  "gameweeks": {}
+  "gameweeks": {
+    "1": {
+      "status": "provisional",
+      "computedAt": "2026-08-22T06:28:44.478Z",
+      "managerResults": {
+        "1103764": {
+          "entryId": 1103764,
+          "gwScore": 21,
+          "benchPoints": 0,
+          "transferCost": 0,
+          "captainPoints": 0,
+          "maxStarterPoints": 9,
+          "maxBenchPoints": 0,
+          "fines": [
+            {
+              "code": "under_30",
+              "label": "Score under 30",
+              "amount": 5
+            },
+            {
+              "code": "captain_zero",
+              "label": "Captain scored 0 points",
+              "amount": 3
+            }
+          ],
+          "total": 8
+        },
+        "1653509": {
+          "entryId": 1653509,
+          "gwScore": 15,
+          "benchPoints": 0,
+          "transferCost": 0,
+          "captainPoints": 0,
+          "maxStarterPoints": 9,
+          "maxBenchPoints": 0,
+          "fines": [
+            {
+              "code": "under_30",
+              "label": "Score under 30",
+              "amount": 5
+            },
+            {
+              "code": "captain_zero",
+              "label": "Captain scored 0 points",
+              "amount": 3
+            }
+          ],
+          "total": 8
+        },
+        "2545609": {
+          "entryId": 2545609,
+          "gwScore": 15,
+          "benchPoints": 0,
+          "transferCost": 0,
+          "captainPoints": 0,
+          "maxStarterPoints": 9,
+          "maxBenchPoints": 0,
+          "fines": [
+            {
+              "code": "under_30",
+              "label": "Score under 30",
+              "amount": 5
+            },
+            {
+              "code": "captain_zero",
+              "label": "Captain scored 0 points",
+              "amount": 3
+            }
+          ],
+          "total": 8
+        },
+        "2669806": {
+          "entryId": 2669806,
+          "gwScore": 12,
+          "benchPoints": 1,
+          "transferCost": 0,
+          "captainPoints": 0,
+          "maxStarterPoints": 6,
+          "maxBenchPoints": 3,
+          "fines": [
+            {
+              "code": "under_30",
+              "label": "Score under 30",
+              "amount": 5
+            },
+            {
+              "code": "captain_zero",
+              "label": "Captain scored 0 points",
+              "amount": 3
+            }
+          ],
+          "total": 8
+        },
+        "3505731": {
+          "entryId": 3505731,
+          "gwScore": 11,
+          "benchPoints": 0,
+          "transferCost": 0,
+          "captainPoints": 0,
+          "maxStarterPoints": 6,
+          "maxBenchPoints": 0,
+          "fines": [
+            {
+              "code": "under_30",
+              "label": "Score under 30",
+              "amount": 5
+            },
+            {
+              "code": "captain_zero",
+              "label": "Captain scored 0 points",
+              "amount": 3
+            }
+          ],
+          "total": 8
+        },
+        "3760441": {
+          "entryId": 3760441,
+          "gwScore": 15,
+          "benchPoints": 2,
+          "transferCost": 0,
+          "captainPoints": 0,
+          "maxStarterPoints": 9,
+          "maxBenchPoints": 3,
+          "fines": [
+            {
+              "code": "under_30",
+              "label": "Score under 30",
+              "amount": 5
+            },
+            {
+              "code": "captain_zero",
+              "label": "Captain scored 0 points",
+              "amount": 3
+            }
+          ],
+          "total": 8
+        },
+        "4381784": {
+          "entryId": 4381784,
+          "gwScore": 0,
+          "benchPoints": 0,
+          "transferCost": 0,
+          "captainPoints": 0,
+          "maxStarterPoints": 0,
+          "maxBenchPoints": 0,
+          "fines": [
+            {
+              "code": "under_30",
+              "label": "Score under 30",
+              "amount": 5
+            },
+            {
+              "code": "captain_zero",
+              "label": "Captain scored 0 points",
+              "amount": 3
+            },
+            {
+              "code": "lowest_score",
+              "label": "Lowest score in the league",
+              "amount": 5
+            }
+          ],
+          "total": 13
+        },
+        "4535263": {
+          "entryId": 4535263,
+          "gwScore": 1,
+          "benchPoints": 0,
+          "transferCost": 0,
+          "captainPoints": 0,
+          "maxStarterPoints": 1,
+          "maxBenchPoints": 0,
+          "fines": [
+            {
+              "code": "under_30",
+              "label": "Score under 30",
+              "amount": 5
+            },
+            {
+              "code": "captain_zero",
+              "label": "Captain scored 0 points",
+              "amount": 3
+            }
+          ],
+          "total": 8
+        },
+        "5084662": {
+          "entryId": 5084662,
+          "gwScore": 26,
+          "benchPoints": 0,
+          "transferCost": 0,
+          "captainPoints": 0,
+          "maxStarterPoints": 11,
+          "maxBenchPoints": 0,
+          "fines": [
+            {
+              "code": "under_30",
+              "label": "Score under 30",
+              "amount": 5
+            },
+            {
+              "code": "captain_zero",
+              "label": "Captain scored 0 points",
+              "amount": 3
+            }
+          ],
+          "total": 8
+        },
+        "5098299": {
+          "entryId": 5098299,
+          "gwScore": 26,
+          "benchPoints": 0,
+          "transferCost": 0,
+          "captainPoints": 0,
+          "maxStarterPoints": 11,
+          "maxBenchPoints": 0,
+          "fines": [
+            {
+              "code": "under_30",
+              "label": "Score under 30",
+              "amount": 5
+            },
+            {
+              "code": "captain_zero",
+              "label": "Captain scored 0 points",
+              "amount": 3
+            }
+          ],
+          "total": 8
+        },
+        "5168727": {
+          "entryId": 5168727,
+          "gwScore": 15,
+          "benchPoints": 1,
+          "transferCost": 0,
+          "captainPoints": 0,
+          "maxStarterPoints": 9,
+          "maxBenchPoints": 1,
+          "fines": [
+            {
+              "code": "under_30",
+              "label": "Score under 30",
+              "amount": 5
+            },
+            {
+              "code": "captain_zero",
+              "label": "Captain scored 0 points",
+              "amount": 3
+            }
+          ],
+          "total": 8
+        },
+        "5946602": {
+          "entryId": 5946602,
+          "gwScore": 20,
+          "benchPoints": 0,
+          "transferCost": 0,
+          "captainPoints": 0,
+          "maxStarterPoints": 11,
+          "maxBenchPoints": 0,
+          "fines": [
+            {
+              "code": "under_30",
+              "label": "Score under 30",
+              "amount": 5
+            },
+            {
+              "code": "captain_zero",
+              "label": "Captain scored 0 points",
+              "amount": 3
+            }
+          ],
+          "total": 8
+        },
+        "6068214": {
+          "entryId": 6068214,
+          "gwScore": 21,
+          "benchPoints": 1,
+          "transferCost": 0,
+          "captainPoints": 0,
+          "maxStarterPoints": 9,
+          "maxBenchPoints": 3,
+          "fines": [
+            {
+              "code": "under_30",
+              "label": "Score under 30",
+              "amount": 5
+            },
+            {
+              "code": "captain_zero",
+              "label": "Captain scored 0 points",
+              "amount": 3
+            }
+          ],
+          "total": 8
+        },
+        "6606805": {
+          "entryId": 6606805,
+          "gwScore": 21,
+          "benchPoints": 0,
+          "transferCost": 0,
+          "captainPoints": 0,
+          "maxStarterPoints": 9,
+          "maxBenchPoints": 0,
+          "fines": [
+            {
+              "code": "under_30",
+              "label": "Score under 30",
+              "amount": 5
+            },
+            {
+              "code": "captain_zero",
+              "label": "Captain scored 0 points",
+              "amount": 3
+            }
+          ],
+          "total": 8
+        },
+        "6947968": {
+          "entryId": 6947968,
+          "gwScore": 15,
+          "benchPoints": 0,
+          "transferCost": 0,
+          "captainPoints": 0,
+          "maxStarterPoints": 9,
+          "maxBenchPoints": 0,
+          "fines": [
+            {
+              "code": "under_30",
+              "label": "Score under 30",
+              "amount": 5
+            },
+            {
+              "code": "captain_zero",
+              "label": "Captain scored 0 points",
+              "amount": 3
+            }
+          ],
+          "total": 8
+        },
+        "7969093": {
+          "entryId": 7969093,
+          "gwScore": 22,
+          "benchPoints": 1,
+          "transferCost": 0,
+          "captainPoints": 6,
+          "maxStarterPoints": 9,
+          "maxBenchPoints": 1,
+          "fines": [
+            {
+              "code": "under_30",
+              "label": "Score under 30",
+              "amount": 5
+            }
+          ],
+          "total": 5
+        }
+      }
+    }
+  }
 }
